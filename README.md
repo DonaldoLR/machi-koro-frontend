@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Machi Koro - Ruby + React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## App Idea
 
-## Available Scripts
+Display Machi Koro cards and their attributes. A user would be able to view the card, and the type of establishment (primary, secondary, restaurant, major). Create a backend using Ruby, ActiveRecord and Rack while using React for the front end.
 
-In the project directory, you can run:
+## MVP
 
-### `npm start`
+- [ ] Access a Sqlite3 database using Active Record.
+- [ ] You should have a minimum of two models with a one to many relationship.
+- [ ] You should build out a simple React frontend to give your user 3 of the 4 CRUD abilities for at least one of your resources. For example, build out a todo list. A user should be able to create a new todo, see all todos, update a todo item, and delete a todo. Todos can be grouped into categories, so that a todo has many categories and categories have many todos.
+- [ ] Use good OO design patterns. You should have separate classes for your models.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Stretch Goals
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [ ] Filter cards by establishment type
+- [ ] Responsive Design for application
+- [ ] Add some animations throughout the application
+- [ ] Migrate from CSS to SASS
+- [ ] Add frontend validations with Formik and Yup
+- [ ] Add HTTP Error handling on frontend
+- [ ] Add some analytics (graphs)
 
-### `npm test`
+## Roadmap
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Create Back-End API
 
-### `npm run build`
+- [ ] Decide Relationship between two models
+- [ ] Decide Data Structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Create Front-End
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [ ] Design
+  - [ ] App Layout
+  - [ ] App Colors
+  - [ ] Text
+- [ ] Handling Data
+  - [ ] Fetch Data
+  - [ ] Set state with data received
+- [ ] Add Interactivity
+  - [ ] Ability to create a card
+  - [ ] Ability to update a card
+  - [ ] Ability to delete a card
+- [ ] Implement Design
+- [ ] Cleanup
+  - [ ] Code Readability
+  - [ ] DRY Code
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Resources
 
-### `npm run eject`
+### Design Inspirations
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- https://www.behance.net/gallery/106173723/UpLix-Online-service-with-mini-games
+- https://dribbble.com/shots/16101959-Online-Game
