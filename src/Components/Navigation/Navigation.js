@@ -1,13 +1,17 @@
 import React from 'react';
 
+import { NavLink } from 'react-router-dom';
+
 const Navigation = () => {
   return (
     <nav className='navbar navbar-dark bg-dark'>
       <div className='container'>
-        <a className='navbar-brand'>Machi Koro</a>
-        <button className='d-flex btn btn-outline-success' type='submit'>
+        <NavLink to='/' className='navbar-brand'>
+          Machi Koro
+        </NavLink>
+        <NavLink to='/newCard' className='d-flex btn btn-outline-success'>
           New Card
-        </button>
+        </NavLink>
       </div>
     </nav>
   );
