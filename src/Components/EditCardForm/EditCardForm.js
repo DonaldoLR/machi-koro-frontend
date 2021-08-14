@@ -17,11 +17,18 @@ const EditCardForm = () => {
       .then((res) => res.json())
       .then(setEstablishments);
   }, []);
+
   useEffect(() => {
     fetch(`http://localhost:4000/cards/${id}`)
       .then((res) => res.json())
-      .then(setformData);
-  }, []);
+      .then((data) => {
+        if (data['message']) {
+          history.push('/404');
+        }
+        setformData(data);
+      });
+  }, [id, history]);
+
   const establishmentOptions = () => {
     return establishments.map((est) => (
       <option key={est.id} value={est.id}>
@@ -29,6 +36,7 @@ const EditCardForm = () => {
       </option>
     ));
   };
+
   const handleChange = (e) => {
     let value = e.target.value;
     let key = e.target.name;
@@ -46,10 +54,9 @@ const EditCardForm = () => {
       [key]: value,
     });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
-
     fetch(`http://127.0.0.1:4000/cards/${id}`, {
       method: 'PUT',
       headers: {
@@ -59,16 +66,20 @@ const EditCardForm = () => {
       body: JSON.stringify(formData),
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
+      .then(() => {
         setformData(initalFormData);
         history.push('/');
       });
   };
+
   return (
     <div className='container'>
       <div className='row'>
-        <img src={formData.design_img} alt={formData.name} className='col-3' />
+        <img
+          src={formData.design_img}
+          alt={formData.name}
+          className='col-sm-6 col-md-4 col-lg-3'
+        />
         <form className='col' onSubmit={handleSubmit}>
           <div className='mb-3'>
             <label htmlFor='nameInput' className='form-label'>
@@ -92,8 +103,7 @@ const EditCardForm = () => {
               className='form-control'
               id='imageUrlInput'
               name='design_img'
-              value={formData.design_img}
-              onChange={handleChange}
+              onBlur={handleChange}
             />
           </div>
           <div className='mb-3'>

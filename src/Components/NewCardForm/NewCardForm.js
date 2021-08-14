@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-
+import { useHistory } from 'react-router-dom';
 const NewCardForm = () => {
+  const history = useHistory();
   const initalFormData = {
     name: '',
     design_img: '',
     build_cost: 0,
-    establishment_id: 5,
+    establishment_id: 1,
     description: '',
   };
   const [formData, setformData] = useState(initalFormData);
@@ -28,7 +29,7 @@ const NewCardForm = () => {
     if (key === 'establishment_id') {
       value = parseInt(value, 10);
     }
-    if (key === 'build_cost' && value < 0) {
+    if (key === 'build_cost' && (value < 0 || value === '')) {
       value = 0;
     }
     if (key === 'build_cost') {
@@ -41,7 +42,6 @@ const NewCardForm = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
     fetch('http://127.0.0.1:4000/cards', {
       method: 'POST',
       headers: {
@@ -51,15 +51,19 @@ const NewCardForm = () => {
       body: JSON.stringify(formData),
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
+      .then(() => {
         setformData(initalFormData);
+        history.push('/');
       });
   };
   return (
     <div className='container'>
       <div className='row'>
-        <img src='' alt='' className='col' />
+        <img
+          src={formData.design_img}
+          alt=''
+          className='col-sm-6 col-md-4 col-lg-3'
+        />
         <form className='col' onSubmit={handleSubmit}>
           <div className='mb-3'>
             <label htmlFor='nameInput' className='form-label'>
@@ -83,8 +87,7 @@ const NewCardForm = () => {
               className='form-control'
               id='imageUrlInput'
               name='design_img'
-              value={formData.design_img}
-              onChange={handleChange}
+              onBlur={handleChange}
             />
           </div>
           <div className='mb-3'>

@@ -8,26 +8,7 @@ const CardContainer = () => {
       .then((res) => res.json())
       .then(setEstablishments);
   }, []);
-  const deleteCard = (id) => {
-    fetch(`http://localhost:4000/cards/${id}`, {
-      method: 'DELETE',
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        const updatedEstablishment = establishments.map((est) => {
-          return {
-            ...est,
-            cards: est.cards.filter((card) => {
-              return card.id !== id;
-            }),
-          };
-        });
-        console.log(updatedEstablishment);
-        setEstablishments(updatedEstablishment);
-      });
-  };
   const displayCards = () => {
-    // return cards.map((card) => <Card est={'primary'} card={card} />);
     const filteredEstablishments = establishments.filter((est) => {
       if (selectedEstablishment === 'All') return true;
       return est.name === selectedEstablishment;
@@ -54,10 +35,27 @@ const CardContainer = () => {
   const handleFilterSelect = (e) => {
     setSelectedEstablishment(e.target.value);
   };
+  const deleteCard = (id) => {
+    fetch(`http://localhost:4000/cards/${id}`, {
+      method: 'DELETE',
+    })
+      .then((res) => res.json())
+      .then(() => {
+        const updatedEstablishment = establishments.map((est) => {
+          return {
+            ...est,
+            cards: est.cards.filter((card) => {
+              return card.id !== id;
+            }),
+          };
+        });
+        setEstablishments(updatedEstablishment);
+      });
+  };
   return (
     <div className='container'>
       <select
-        className='form-select'
+        className='form-select my-5 mx-auto w-50'
         aria-label='Default select example'
         onChange={handleFilterSelect}
       >
