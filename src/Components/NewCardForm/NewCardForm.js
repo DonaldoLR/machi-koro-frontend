@@ -42,7 +42,7 @@ const NewCardForm = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://127.0.0.1:4000/cards', {
+    fetch('https://warm-brook-89861.herokuapp.com/cards', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
