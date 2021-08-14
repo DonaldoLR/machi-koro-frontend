@@ -4,7 +4,7 @@ const CardContainer = () => {
   const [establishments, setEstablishments] = useState(null);
   const [selectedEstablishment, setSelectedEstablishment] = useState('All');
   useEffect(() => {
-    fetch('http://localhost:4000/establishments')
+    fetch('https://warm-brook-89861.herokuapp.com/establishments')
       .then((res) => res.json())
       .then(setEstablishments);
   }, []);
@@ -36,7 +36,7 @@ const CardContainer = () => {
     setSelectedEstablishment(e.target.value);
   };
   const deleteCard = (id) => {
-    fetch(`http://localhost:4000/cards/${id}`, {
+    fetch(`https://warm-brook-89861.herokuapp.com/cards/${id}`, {
       method: 'DELETE',
     })
       .then((res) => res.json())
