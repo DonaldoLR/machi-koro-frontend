@@ -10,7 +10,7 @@ const Card = ({
   };
   return (
     <div
-      className='card border-dark mb-3 col col-sm-12 col-md-6 mx-auto'
+      className='card border-dark mb-3 col-sm-12 col-md-6 mx-auto'
       style={{ width: '18rem' }}
     >
       <img
