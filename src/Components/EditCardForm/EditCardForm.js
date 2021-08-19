@@ -57,7 +57,7 @@ const EditCardForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`http://127.0.0.1:4000/cards/${id}`, {
+    fetch(`https://warm-brook-89861.herokuapp.com/cards/${id}`, {
       method: 'PUT',
       headers: {
         Accept: 'application/json',
