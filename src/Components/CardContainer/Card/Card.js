@@ -13,11 +13,11 @@ const Card = ({
       className='card border-dark mb-3 col-sm-12 col-md-6 mx-auto'
       style={{ width: '18rem' }}
     >
-      {/* <img
+      <img
         src={design_img}
         className='card-img-top'
         alt={`${name} - Card Design`}
-      /> */}
+      />
       <div className='card-body'>
         <h5 className='card-title'>{name}</h5>
         <p className='card-text'>{description}</p>
